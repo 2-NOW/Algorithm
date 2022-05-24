@@ -13,12 +13,9 @@ var removeDuplicates = function(nums) {
       hashmap.set(nums[i], 1)
       count++;
     } else {
-      // nums.splice(i, 1);
-      // nums.push('_')
       nums[i] = 101;
     }
   }
   nums.sort((a,b)=> a - b)
-  console.log(nums)
   return count;
 };
