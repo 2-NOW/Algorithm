@@ -12,6 +12,6 @@ var isValid = function(s) {
       stack.push(brackets[s.charAt(i)])
     } else if (s.charAt(i) !== stack.pop()) return false;
   }
-  console.log(stack)
+  
   return !!!stack.length ? true : false;
 };
