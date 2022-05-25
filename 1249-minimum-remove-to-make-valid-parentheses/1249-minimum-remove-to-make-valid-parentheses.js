@@ -3,6 +3,21 @@
  * @return {string}
  */
 var minRemoveToMakeValid = function(s) {
+  const arr = s.split('');
+  const stack = [];
+  
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] === '(') stack.push(i);
+    else if(arr[i] === ')') {
+      if(stack.length) stack.pop();
+      else arr[i] = "";
+    }
+  }
+  
+  for (let n of stack) arr[n] = "";
+  
+  return arr.join("")
+
 //   let open = 0;
   
 //   // s에 ( 가 있으면 더 지나가면 )가 있어야함.
@@ -39,18 +54,4 @@ var minRemoveToMakeValid = function(s) {
 
 //   return s;
   
-  const arr = s.split('');
-  const stack = [];
-  
-  for(let i = 0; i < arr.length; i++) {
-    if(arr[i] === '(') stack.push(i);
-    else if(arr[i] === ')') {
-      if(stack.length) stack.pop();
-      else arr[i] = "";
-    }
-  }
-  
-  for (let n of stack) arr[n] = "";
-  
-  return arr.join("")
 };
