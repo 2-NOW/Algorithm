@@ -12,15 +12,14 @@ var validPalindrome = function(s) {
   
   const check = (left, right) => {
     for (let i = left; i < s.length/2; i++) {
-      console.log(s[i], s[right])
-      if(s[i] !== s[right]) return false;
+      if(s.charAt(i) !== s.charAt(right)) return false;
       right--;
     }
     return true;
   }
 
   for (let i = 0; i < s.length/2; i++) {
-    if(s[i] !== s[r]) return check(i, r-1) || check(i+1, r)
+    if(s.charAt(i) !== s.charAt(r)) return check(i, r-1) || check(i+1, r)
     r--;
   }
   
