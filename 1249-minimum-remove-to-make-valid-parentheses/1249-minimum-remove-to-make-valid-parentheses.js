@@ -26,12 +26,10 @@ var minRemoveToMakeValid = function(s) {
   let close = 0;
   // 괄호가 열려있는채로 끝났다 ?
   // 그럼 뒤에서 한번 더 계산
-  console.log(open)
   if(open > 0) {
     for (let j = s.length - 1; j >= 0; j--) {
       if(s.charAt(j) === '(') close--;
       else if(s.charAt(j) === ')') close++;
-      console.log(close, j)
       if(close < 0) {
         s = s.substring(0, j) + s.substring(j + 1)
         close++;
