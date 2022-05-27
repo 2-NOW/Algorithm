@@ -9,10 +9,6 @@ var minMeetingRooms = function(intervals) {
   let room = 0;
   let end = 0;
   
-  console.log(starts)
-  console.log(ends)
-
-  
   for (let i = 0; i < intervals.length; i++) {
     starts[i][0] < ends[end][1] ? room++ : end++
   }
