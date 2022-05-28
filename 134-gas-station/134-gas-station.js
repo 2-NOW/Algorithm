@@ -8,6 +8,12 @@ var canCompleteCircuit = function(gas, cost) {
   let total = 0;
   let current = 0;
   
+  // 각 station에서 나오는 current의 값들은 다 같으므로
+  // 모든 station을 돌면서 current 값들을 계산한다.
+  // 그리고 total에 누적시킨 후
+  // 최종 current값과 total을 더해서 0 이상일 때는 가스비가 남는것이므로 start를 반환
+  // 0보다 작으면 다 돌 수 없으므로 -1 반환
+  
   for(let i = 0; i < gas.length; i++) {
     current += gas[i] - cost[i]
     
