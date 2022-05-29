@@ -25,7 +25,9 @@ var canCompleteCircuit = function(gas, cost) {
   }
   
   return total + current >= 0 ? start : -1;
-    
+
+// 아래는 시간초과
+
 //     if(gas[i] >= cost[i]) {
 //       let tank = gas[i];
 //       let station = i;
