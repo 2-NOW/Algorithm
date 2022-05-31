@@ -31,8 +31,10 @@ var numIslands = function(grid) {
   }
   
   return count;
+
   // while문은 stack에 넣었다 뺐다 하는 시간이 들어가서
   // 이중for문이 더 나은 런타임을 갖는다.
+
 //   while(stack.length !== 0) {
 //     const cur = stack.pop();
 //     if(grid[cur[0]][cur[1]] === "1") {
