@@ -3,20 +3,30 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function(s) {
-    var length = s.length;
-    if (length <= 1) {
-        return length;
-    }
-    var p = 0;
-    var q = 1;
-    var result = 1;
+    // 투 포인터 해결법
+    const length = s.length;
+  
+    if (length <= 1) return length;
+    
+    let p = 0;
+    let q = 1;
+    let result = 1;
+    
+    // q가 length보다 크거나 같을때까지 돌림
     while (q < length) {
-        var sub = s.slice(p, q);
-        var i = sub.indexOf(s[q]);
-        if (i !== -1) {
-            p = p + i + 1;
-        }
+        // sub는 p에서 q까지 자르기
+        let sub = s.slice(p, q);
+        // i는 sub에서 q의 인덱스
+        let i = sub.indexOf(s[q]);
+        // i 가 있으면 -> q가 있으면
+        // p는 i번째 + 1
+        if (i !== -1) p += i + 1;
+      
+        // q를 하나 올림
         q++;
+        
+        // q - p가 result 보다 크면 result는 q - p
+        // q - p가 더 작으면 result 그대로
         result = q - p > result ? q - p : result;
     }
     return result;
