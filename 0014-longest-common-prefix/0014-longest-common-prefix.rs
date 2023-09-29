@@ -1,12 +1,15 @@
 impl Solution {
     pub fn longest_common_prefix(strs: Vec<String>) -> String {
-        if let Some(min_str) = strs.iter().min_by_key(|s| s.len()) { // Find the shortest string
-            return (0..min_str.len()).find(|&i| 
-                !strs.iter().all(|string| string.chars().nth(i).unwrap() == min_str.chars().nth(i).unwrap())
-            ).map(|i| &min_str[..i])
-            .unwrap_or(min_str)
-            .to_string();
+        if strs.is_empty() {
+            return "".into();
         }
-        "".to_string()
+        let prefix = &strs[0]; 
+        for i in 0..prefix.len() {
+            let c = &prefix[i..=i];
+            if strs.iter().any(|s| s.len() <= i || &s[i..=i] != c) {
+                return prefix[..i].into();
+            }
+        }
+        prefix.into()
     }
 }
