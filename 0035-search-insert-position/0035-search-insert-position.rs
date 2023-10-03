@@ -9,7 +9,7 @@ impl Solution {
                 r = mid;
             }
         }
-        l as i32
+        return l as i32;
     }
 }
 
