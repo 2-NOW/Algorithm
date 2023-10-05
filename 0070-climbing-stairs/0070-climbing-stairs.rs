@@ -4,7 +4,7 @@ impl Solution {
             return 1;
         }
 
-        let mut dp: Vec<i32> = vec![0; 46];
+        let mut dp: Vec<i32> = vec![0; n as usize + 1];
 
         dp[0] = 1;
         dp[1] = 1;
