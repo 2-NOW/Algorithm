@@ -16,7 +16,7 @@ impl Solution {
                 left = mid + 1;
             }
         }
-        
+
         0
     }
 }
