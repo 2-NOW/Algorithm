@@ -1,22 +1,24 @@
 impl Solution {
     pub fn my_sqrt(x: i32) -> i32 {
-        if x == 0 { return 0; }
+        if x < 2 { return x; }
 
-        let mut left = 1;
-        let mut right = x;
+        // 초기 이진검색의 공간
+        let (mut left, mut right) = (0, x);
 
-        while left <= right {
-            let mid = left + (right - left) / 2;
-            if mid > x/mid {
+        // 오른쪽 포인트가 더 클 때까지
+        while left < right {
+            let mid = (left + right + 1) / 2;
+
+            // mid * mid > x 는 overflow가 생길수도 있어서
+            // mid > x / mid
+            if mid > x / mid {
+                // right를 
                 right = mid - 1;
             } else {
-                if mid + 1 > x/(mid + 1) {
-                    return mid;
-                }
-                left = mid + 1;
+                left = mid;
             }
         }
 
-        0
+        left
     }
 }
